@@ -2,31 +2,31 @@ package br.senai.sp.jandira.model;
 
 public class TabuadaWhileLacos {
 	
-	public int multiplicando, mínMultiplicador, máxMultiplicador;
+	public int multiplicando, minMultiplicador, maxMultiplicador;
 	public String[] resultados;
 	
-	public void getTabuada() {
+	public String[] getTabuada() {
 		
-		int tamanho = máxMultiplicador - mínMultiplicador + 1;
+		int tamanho = maxMultiplicador - minMultiplicador + 1;
 		
 		resultados = new String[tamanho];
-		int contadorinicial = 0;
-		int contadorminimo = mínMultiplicador;
-		while(contadorminimo <= máxMultiplicador) {
+		int contadorinicial = 1;
+		int contadorminimo = minMultiplicador;
+		while(contadorminimo < maxMultiplicador) {
 			
-			resultados[contadorinicial] = multiplicando + " X " + contadorminimo + " = " + multiplicando * contadorinicial; 
+			resultados[contadorinicial] = multiplicando + " X " + contadorminimo + " = " + multiplicando * contadorminimo; 
 			contadorinicial++;
 			contadorminimo++;
 			
-		}
+		} return resultados;
 		
 	}
 	
 	public void getResultado() {
 		
 		int contador1 = 0;
-		int contador2 = mínMultiplicador;
-		while(contador2 <= máxMultiplicador) {
+		int contador2 = minMultiplicador;
+		while(contador2 <= maxMultiplicador) {
 			
 			System.out.println(resultados[contador1]);
 			

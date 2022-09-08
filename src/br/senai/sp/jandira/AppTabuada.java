@@ -13,17 +13,17 @@ public class AppTabuada {
 		
 		TabuadaWhileLacos usuario = new TabuadaWhileLacos(); 
 	
-		System.out.println("insira o multiplicando:");
-		usuario.multiplicando = leitor.nextInt();
-		
-		System.out.println("insira o mínimo multiplicador:");
-		usuario.mínMultiplicador = leitor.nextInt();
-		
-		System.out.println("insira o máximo multiplicador:");
-		usuario.máxMultiplicador= leitor.nextInt();
-		
-		usuario.getTabuada();
-		usuario.getResultado();
+//		System.out.println("insira o multiplicando:");
+//		usuario.multiplicando = leitor.nextInt();
+//		
+//		System.out.println("insira o mínimo multiplicador:");
+//		usuario.mínMultiplicador = leitor.nextInt();
+//		
+//		System.out.println("insira o máximo multiplicador:");
+//		usuario.máxMultiplicador= leitor.nextInt();
+//		
+//		usuario.getTabuada();
+//		usuario.getResultado();
 		
 		FrameTabuada tela = new FrameTabuada();
 		tela.altura = 2000;
