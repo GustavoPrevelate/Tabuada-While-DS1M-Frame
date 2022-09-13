@@ -43,8 +43,6 @@ public class FrameTabuada {
 		JLabel calculadora = new JLabel(calculadoraimagem);
 		calculadora.setBounds(-40, 0, 300, 80);
 		painel.add(calculadora);
-
-		
 		
 		JLabel labelTabuada = new JLabel();
 		labelTabuada.setText("Tabuada 1.0");
@@ -245,7 +243,8 @@ public class FrameTabuada {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				scroll.setVisible(false);
+				String[] limpar = {""};
+				lista.setListData(limpar);
 				
 			}
 		});
