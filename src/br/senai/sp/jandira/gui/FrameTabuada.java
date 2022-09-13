@@ -27,8 +27,9 @@ public class FrameTabuada {
 	public String titulo;
 	public int largura;
 	public int altura;
+
 	public void criarTela() {
-		
+
 		JFrame tela = new JFrame();
 		tela.setTitle("Tabuada");
 		tela.setSize(620, 820);
@@ -36,219 +37,229 @@ public class FrameTabuada {
 		tela.setLocationRelativeTo(null);
 		tela.setLayout(null);
 		tela.setResizable(false);
-		
+
 		Container painel = tela.getContentPane();
-		
+
 		ImageIcon calculadoraimagem = new ImageIcon(getClass().getResource("calculadora_icon.png"));
 		JLabel calculadora = new JLabel(calculadoraimagem);
 		calculadora.setBounds(-40, 0, 300, 80);
 		painel.add(calculadora);
-		
+
 		JLabel labelTabuada = new JLabel();
 		labelTabuada.setText("Tabuada 1.0");
-		labelTabuada.setFont(new Font ("Cooper Black", Font.BOLD,30));
+		labelTabuada.setFont(new Font("Cooper Black", Font.BOLD, 30));
 		labelTabuada.setForeground(new Color(255, 0, 0));
 		labelTabuada.setBounds(150, 30, 300, 35);
-		
+
 		JLabel labelSubTitulo = new JLabel();
 		labelSubTitulo.setText("Com a tabuada 1.0 os seus problemas acabaram.");
-		labelSubTitulo.setFont(new Font ("Cooper Black", Font.BOLD,20));
-		labelSubTitulo.setForeground(new Color(105,105,105));
+		labelSubTitulo.setFont(new Font("Cooper Black", Font.BOLD, 20));
+		labelSubTitulo.setForeground(new Color(105, 105, 105));
 		labelSubTitulo.setBounds(90, 80, 1200, 25);
-		
+
 		JLabel labelSubTitulo2 = new JLabel();
 		labelSubTitulo2.setText("Calcule a tabuada que desejar em segundos!");
-		labelSubTitulo2.setFont(new Font ("Cooper Black", Font.BOLD,20));
-		labelSubTitulo2.setForeground(new Color(105,105,105));
+		labelSubTitulo2.setFont(new Font("Cooper Black", Font.BOLD, 20));
+		labelSubTitulo2.setForeground(new Color(105, 105, 105));
 		labelSubTitulo2.setBounds(90, 100, 1200, 25);
-		
+
 		JLabel labelMultiplicando = new JLabel();
 		labelMultiplicando.setText("Multiplicando :");
-		labelMultiplicando.setFont(new Font ("Cooper Black", Font.BOLD,20));
+		labelMultiplicando.setFont(new Font("Cooper Black", Font.BOLD, 20));
 		labelMultiplicando.setBounds(162, 150, 600, 25);
 
 		JTextField textFieldMultiplicando = new JTextField();
 		textFieldMultiplicando.setBounds(330, 150, 150, 30);
 		textFieldMultiplicando.setForeground(Color.BLACK);
-		
+		textFieldMultiplicando.setHorizontalAlignment(JTextField.RIGHT);
+
 		JLabel labelMinMultiplicador = new JLabel();
 		labelMinMultiplicador.setText("Mínimo Multiplicador :");
-		labelMinMultiplicador.setFont(new Font ("Cooper Black", Font.BOLD,20));
+		labelMinMultiplicador.setFont(new Font("Cooper Black", Font.BOLD, 20));
 		labelMinMultiplicador.setBounds(80, 210, 600, 25);
 
 		JTextField textFieldMinMultiplicador = new JTextField();
 		textFieldMinMultiplicador.setBounds(330, 210, 150, 30);
 		textFieldMinMultiplicador.setForeground(Color.BLACK);
-		
+		textFieldMinMultiplicador.setHorizontalAlignment(JTextField.RIGHT);
+
 		JLabel labelMaxMultiplicador = new JLabel();
 		labelMaxMultiplicador.setText("Máximo Multiplicador :");
-		labelMaxMultiplicador.setFont(new Font ("Cooper Black", Font.BOLD,20));
+		labelMaxMultiplicador.setFont(new Font("Cooper Black", Font.BOLD, 20));
 		labelMaxMultiplicador.setBounds(78, 270, 600, 25);
 
 		JTextField textFieldMaxMultiplicador = new JTextField();
 		textFieldMaxMultiplicador.setBounds(330, 270, 150, 30);
 		textFieldMaxMultiplicador.setForeground(Color.BLACK);
-		
+		textFieldMaxMultiplicador.setHorizontalAlignment(JTextField.RIGHT);
+
 		JButton ButtonCalcular = new JButton();
 		ButtonCalcular.setText("Calcular");
 		ButtonCalcular.setBounds(80, 340, 250, 45);
-		ButtonCalcular.setFont(new Font ("Cooper Black", Font.BOLD,18));
+		ButtonCalcular.setFont(new Font("Cooper Black", Font.BOLD, 18));
 		ButtonCalcular.setForeground(new Color(255, 255, 255));
 		ButtonCalcular.setBackground(Color.green);
-		
+
 		JButton ButtonLimpar = new JButton();
 		ButtonLimpar.setText("Limpar");
 		ButtonLimpar.setBounds(340, 340, 140, 45);
-		ButtonLimpar.setFont(new Font ("Cooper Black", Font.BOLD,18));
+		ButtonLimpar.setFont(new Font("Cooper Black", Font.BOLD, 18));
 		ButtonLimpar.setForeground(new Color(255, 255, 255));
 		ButtonLimpar.setBackground(Color.orange);
-		
+
 		JLabel labelResultado = new JLabel();
 		labelResultado.setText("Resultado:");
-		labelResultado.setFont(new Font ("Cooper Black", Font.BOLD,20));
+		labelResultado.setFont(new Font("Cooper Black", Font.BOLD, 20));
 		labelResultado.setBounds(80, 400, 150, 25);
-		
+
 		JList<String> lista = new JList<String>();
 		JScrollPane scroll = new JScrollPane(lista);
-		
-		scroll.setBounds( 80, 460, 400, 250 );
-		
+
+		scroll.setBounds(80, 460, 400, 250);
+
 		lista.setBackground(Color.ORANGE);
 		lista.setForeground(Color.white);
-		
+
 		textFieldMultiplicando.addKeyListener(new KeyListener() {
-			
+
 			@Override
 			public void keyReleased(KeyEvent e) {
-				textFieldMultiplicando.setText(textFieldMultiplicando.getText().replaceAll( "[^0-9]" , ""));
-			if(textFieldMultiplicando.getText().length() > 9) {
-						
-			JOptionPane.showMessageDialog(null, "Valor excedido","ERRO",JOptionPane.ERROR_MESSAGE);
-			textFieldMultiplicando.setText(textFieldMultiplicando.getText().replaceAll( "[0-9]" , ""));
+				textFieldMultiplicando.setText(textFieldMultiplicando.getText().replaceAll("[^0-9]", ""));
+				if (textFieldMultiplicando.getText().length() > 9) {
 
-					}
-				}
-
-				@Override
-				public void keyTyped(KeyEvent e) {
-					// TODO Auto-generated method stub
+					JOptionPane.showMessageDialog(null, "Valor excedido", "ERRO", JOptionPane.ERROR_MESSAGE);
+					textFieldMultiplicando.setText(textFieldMultiplicando.getText().replaceAll("[0-9]", ""));
 
 				}
+			}
 
-				@Override
-				public void keyPressed(KeyEvent e) {
-					// TODO Auto-generated method stub
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
 
-				}
+			}
 
-			});
-		
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+		});
+
 		textFieldMinMultiplicador.addKeyListener(new KeyListener() {
-			
+
 			@Override
 			public void keyReleased(KeyEvent e) {
-			textFieldMinMultiplicador.setText(textFieldMinMultiplicador.getText().replaceAll( "[^0-9]" , ""));
-			if(textFieldMinMultiplicador.getText().length() > 9) {
-						
-			JOptionPane.showMessageDialog(null, "Valor excedido","ERRO",JOptionPane.ERROR_MESSAGE);
-			textFieldMinMultiplicador.setText(textFieldMinMultiplicador.getText().replaceAll( "[0-9]" , ""));
+				textFieldMinMultiplicador.setText(textFieldMinMultiplicador.getText().replaceAll("[^0-9]", ""));
+				if (textFieldMinMultiplicador.getText().length() > 9) {
 
-					}
-				}
-
-				@Override
-				public void keyTyped(KeyEvent e) {
-					// TODO Auto-generated method stub
+					JOptionPane.showMessageDialog(null, "Valor excedido", "ERRO", JOptionPane.ERROR_MESSAGE);
+					textFieldMinMultiplicador.setText(textFieldMinMultiplicador.getText().replaceAll("[0-9]", ""));
 
 				}
+			}
 
-				@Override
-				public void keyPressed(KeyEvent e) {
-					// TODO Auto-generated method stub
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
 
-				}
+			}
 
-			});
-		
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+		});
+
 		textFieldMaxMultiplicador.addKeyListener(new KeyListener() {
-				
-				@Override
-				public void keyReleased(KeyEvent e) {
-				textFieldMaxMultiplicador.setText(textFieldMaxMultiplicador.getText().replaceAll( "[^0-9]" , ""));
-				if(textFieldMaxMultiplicador.getText().length() > 9) {
-							
-				JOptionPane.showMessageDialog(null, "Valor excedido","ERRO",JOptionPane.ERROR_MESSAGE);
-				textFieldMaxMultiplicador.setText(textFieldMaxMultiplicador.getText().replaceAll( "[0-9]" , ""));
-	
-						}
-					}
-	
-					@Override
-					public void keyTyped(KeyEvent e) {
-						// TODO Auto-generated method stub
-	
-					}
-	
-					@Override
-					public void keyPressed(KeyEvent e) {
-						// TODO Auto-generated method stub
-	
-					}
-	
-				});
-		
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				textFieldMaxMultiplicador.setText(textFieldMaxMultiplicador.getText().replaceAll("[^0-9]", ""));
+				if (textFieldMaxMultiplicador.getText().length() > 9) {
+
+					JOptionPane.showMessageDialog(null, "Valor excedido", "ERRO", JOptionPane.ERROR_MESSAGE);
+					textFieldMaxMultiplicador.setText(textFieldMaxMultiplicador.getText().replaceAll("[0-9]", ""));
+
+				}
+			}
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+		});
+
 		ButtonCalcular.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 				TabuadaWhileLacos tabuada = new TabuadaWhileLacos();
-				
-				if(textFieldMaxMultiplicador.getText().isEmpty() || textFieldMinMultiplicador.getText().isEmpty() || textFieldMultiplicando.getText().isEmpty()) {
-					
-					JOptionPane.showMessageDialog(null, "Digite um valor no Multiplicando, No Máximo e No Mínimo!","ERRO",JOptionPane.WARNING_MESSAGE);
-					
-				}else {
-				tabuada.multiplicando = Integer.parseInt(textFieldMultiplicando.getText());
-				tabuada.minMultiplicador = Integer.parseInt(textFieldMinMultiplicador.getText());
-				tabuada.maxMultiplicador = Integer.parseInt(textFieldMaxMultiplicador.getText());
-				
-				textFieldMultiplicando.setFont(new Font ("poppins", Font.BOLD,28));
-				textFieldMinMultiplicador.setFont(new Font ("poppins", Font.BOLD,28));
-				textFieldMaxMultiplicador.setFont(new Font ("poppins", Font.BOLD,28));
-				}
-				
-				if (tabuada.maxMultiplicador < tabuada.minMultiplicador) {
-					
-					JOptionPane.showMessageDialog(null, "Você não pode colocar um multiplicador mínimo maior que o multiplicador máximo", "Erro", JOptionPane.ERROR_MESSAGE);
-				
-				
+
+				if (textFieldMaxMultiplicador.getText().isEmpty() || textFieldMinMultiplicador.getText().isEmpty()
+						|| textFieldMultiplicando.getText().isEmpty()) {
+
+					JOptionPane.showMessageDialog(null, "Digite um valor no Multiplicando, No Máximo e No Mínimo!",
+							"ERRO", JOptionPane.WARNING_MESSAGE);
+
 				} else {
-				
-				String[] resultado = tabuada.getTabuada();
-				lista.setListData(resultado);
-				lista.setFont(new Font ("poppins", Font.BOLD,18));
-				
-				
-				scroll.setVisible(true);
-				
+					
+					
+					tabuada.multiplicando = Integer.parseInt(textFieldMultiplicando.getText());
+					tabuada.minMultiplicador = Integer.parseInt(textFieldMinMultiplicador.getText());
+					tabuada.maxMultiplicador = Integer.parseInt(textFieldMaxMultiplicador.getText());
+					
+					if (tabuada.maxMultiplicador < tabuada.minMultiplicador) {
+
+						JOptionPane.showMessageDialog(null,
+								"Você não pode colocar um multiplicador mínimo maior que o multiplicador máximo",
+								"Erro", JOptionPane.ERROR_MESSAGE);
+
+					} else {
+
+						String[] resultado = tabuada.getTabuada();
+						lista.setListData(resultado);
+						lista.setFont(new Font("poppins", Font.BOLD, 18));
+
+						scroll.setVisible(true);
+
+					}
+
+					textFieldMultiplicando.setFont(new Font("poppins", Font.BOLD, 28));
+					textFieldMinMultiplicador.setFont(new Font("poppins", Font.BOLD, 28));
+					textFieldMaxMultiplicador.setFont(new Font("poppins", Font.BOLD, 28));
 				}
 				
-				
+				System.out.println("Saiu!!");
+
 			}
 		});
-		
+
 		ButtonLimpar.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				String[] limpar = {""};
+
+				String[] limpar = { "" };
 				lista.setListData(limpar);
-				
+				textFieldMultiplicando.setText(null);
+				textFieldMinMultiplicador.setText(null);
+				textFieldMaxMultiplicador.setText(null);
 			}
 		});
-		
+
 		painel.add(labelTabuada);
 		painel.add(labelSubTitulo);
 		painel.add(labelSubTitulo2);
@@ -262,7 +273,7 @@ public class FrameTabuada {
 		painel.add(ButtonLimpar);
 		painel.add(labelResultado);
 		painel.add(scroll);
-		
+
 		tela.setVisible(true);
 
 	}
