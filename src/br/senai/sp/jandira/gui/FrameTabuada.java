@@ -6,6 +6,8 @@ import java.awt.*;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -116,6 +118,87 @@ public class FrameTabuada {
 		lista.setBackground(Color.ORANGE);
 		lista.setForeground(Color.white);
 		
+		textFieldMultiplicando.addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+				textFieldMultiplicando.setText(textFieldMultiplicando.getText().replaceAll( "[^0-9]" , ""));
+			if(textFieldMultiplicando.getText().length() > 9) {
+						
+			JOptionPane.showMessageDialog(null, "Valor excedido","ERRO",JOptionPane.ERROR_MESSAGE);
+			textFieldMultiplicando.setText(textFieldMultiplicando.getText().replaceAll( "[0-9]" , ""));
+
+					}
+				}
+
+				@Override
+				public void keyTyped(KeyEvent e) {
+					// TODO Auto-generated method stub
+
+				}
+
+				@Override
+				public void keyPressed(KeyEvent e) {
+					// TODO Auto-generated method stub
+
+				}
+
+			});
+		
+		textFieldMinMultiplicador.addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+			textFieldMinMultiplicador.setText(textFieldMinMultiplicador.getText().replaceAll( "[^0-9]" , ""));
+			if(textFieldMinMultiplicador.getText().length() > 9) {
+						
+			JOptionPane.showMessageDialog(null, "Valor excedido","ERRO",JOptionPane.ERROR_MESSAGE);
+			textFieldMinMultiplicador.setText(textFieldMinMultiplicador.getText().replaceAll( "[0-9]" , ""));
+
+					}
+				}
+
+				@Override
+				public void keyTyped(KeyEvent e) {
+					// TODO Auto-generated method stub
+
+				}
+
+				@Override
+				public void keyPressed(KeyEvent e) {
+					// TODO Auto-generated method stub
+
+				}
+
+			});
+		
+		textFieldMaxMultiplicador.addKeyListener(new KeyListener() {
+				
+				@Override
+				public void keyReleased(KeyEvent e) {
+				textFieldMaxMultiplicador.setText(textFieldMaxMultiplicador.getText().replaceAll( "[^0-9]" , ""));
+				if(textFieldMaxMultiplicador.getText().length() > 9) {
+							
+				JOptionPane.showMessageDialog(null, "Valor excedido","ERRO",JOptionPane.ERROR_MESSAGE);
+				textFieldMaxMultiplicador.setText(textFieldMaxMultiplicador.getText().replaceAll( "[0-9]" , ""));
+	
+						}
+					}
+	
+					@Override
+					public void keyTyped(KeyEvent e) {
+						// TODO Auto-generated method stub
+	
+					}
+	
+					@Override
+					public void keyPressed(KeyEvent e) {
+						// TODO Auto-generated method stub
+	
+					}
+	
+				});
+		
 		ButtonCalcular.addActionListener(new ActionListener() {
 			
 			@Override
@@ -123,6 +206,11 @@ public class FrameTabuada {
 				
 				TabuadaWhileLacos tabuada = new TabuadaWhileLacos();
 				
+				if(textFieldMaxMultiplicador.getText().isEmpty() || textFieldMinMultiplicador.getText().isEmpty() || textFieldMultiplicando.getText().isEmpty()) {
+					
+					JOptionPane.showMessageDialog(null, "Digite um valor no Multiplicando, No Máximo e No Mínimo!","ERRO",JOptionPane.WARNING_MESSAGE);
+					
+				}else {
 				tabuada.multiplicando = Integer.parseInt(textFieldMultiplicando.getText());
 				tabuada.minMultiplicador = Integer.parseInt(textFieldMinMultiplicador.getText());
 				tabuada.maxMultiplicador = Integer.parseInt(textFieldMaxMultiplicador.getText());
@@ -130,8 +218,9 @@ public class FrameTabuada {
 				textFieldMultiplicando.setFont(new Font ("poppins", Font.BOLD,28));
 				textFieldMinMultiplicador.setFont(new Font ("poppins", Font.BOLD,28));
 				textFieldMaxMultiplicador.setFont(new Font ("poppins", Font.BOLD,28));
+				}
 				
-				if (tabuada.maxMultiplicador <= tabuada.minMultiplicador) {
+				if (tabuada.maxMultiplicador < tabuada.minMultiplicador) {
 					
 					JOptionPane.showMessageDialog(null, "Você não pode colocar um multiplicador mínimo maior que o multiplicador máximo", "Erro", JOptionPane.ERROR_MESSAGE);
 				
