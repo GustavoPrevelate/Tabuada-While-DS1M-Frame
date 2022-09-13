@@ -10,9 +10,9 @@ public class TabuadaWhileLacos {
 		int tamanho = maxMultiplicador - minMultiplicador + 1;
 		
 		resultados = new String[tamanho];
-		int contadorinicial = 1;
+		int contadorinicial = 0;
 		int contadorminimo = minMultiplicador;
-		while(contadorminimo < maxMultiplicador) {
+		while(contadorminimo <= maxMultiplicador) {
 			
 			resultados[contadorinicial] = multiplicando + " X " + contadorminimo + " = " + multiplicando * contadorminimo; 
 			contadorinicial++;
